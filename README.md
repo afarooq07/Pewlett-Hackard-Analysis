@@ -53,14 +53,15 @@ Main take aways from the analysis are below:
 
 ## Summary:
 - How many roles will need to be filled as the "silver tsunami" begins to make an impact?
-The following roles will need to be filled:
-  - "Senior Engineer"
-  - "Senior Staff"
-  - "Engineer"
-  - "Staff"
-  - "Technique Leader"
-  - "Assistant Engineer"
-  - "Manager"
+
+  - The following roles will need to be filled:
+      - "Senior Engineer"
+      - "Senior Staff"
+      - "Engineer"
+      - "Staff"
+      - "Technique Leader"
+      - "Assistant Engineer"
+      - "Manager"
   
 </br>
 
