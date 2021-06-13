@@ -8,7 +8,7 @@ SELECT e.emp_no
 	  ,t.title
 	  ,t.from_date
 	  ,t.to_date
-INTO retirement_titles	  
+--INTO retirement_titles	  
 FROM employees as e 
 INNER JOIN titles as t 
 ON (e.emp_no = t.emp_no)
@@ -30,7 +30,7 @@ FROM retirement_titles
 ORDER BY emp_no, to_date DESC;
 
 
-SELECT * 
+SELECT *
 FROM unique_titles;
 
 -- retrieve the number of employees by their most recent 
@@ -57,6 +57,7 @@ SELECT DISTINCT ON (e.emp_no)  e.emp_no
 	  ,de.from_date
 	  ,de.to_date
 	  ,t.title
+INTO mentorship_eligibilty	  
 FROM employees as e
 INNER JOIN dept_employee as de
 ON (e.emp_no = de.emp_no)
@@ -67,4 +68,12 @@ AND (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
 ORDER BY e.emp_no, t.to_date desc
 ;
 
+select count(*), title
+from mentorship_eligibilty;
+
+
+select count(*), title
+from mentorship_eligibilty
+group by title
+order by count(*) desc;
 
