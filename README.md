@@ -68,7 +68,7 @@ The following roles will need to be filled:
   - not enough - number of employees identified for memtorship program (1549) are 1.71% of the number of employee retiring (90398)
 
 - Additional queries for more insight:
-    - The following query shows retirements of current employees by departments. Development and Production departments will face the the highest retirements. Memtorship programs will be required to fill the positions.
+    - The following query shows retirements of current employees by departments. Development and Production departments will face the the highest retirements. Memtorship programs will be required to fill the positions:
 
         </br>
         select count(*), d.dept_name
@@ -83,4 +83,25 @@ The following roles will need to be filled:
         ORDER BY count(*) DESC
         </br>
 
-    - 
+    - The following queries provides insights into salary details of the employees due to retire:
+      
+      SELECT DISTINCT ON (e.emp_no) e.emp_no,
+            e.first_name,
+            e.last_name,
+            e.gender,
+            s.from_date,
+            s.to_date,
+            s.salary,
+            d.dept_name
+        FROM employees as e
+        INNER JOIN salaries as s
+        ON (e.emp_no = s.emp_no)
+        INNER JOIN dept_employee de
+        ON (de.emp_no = e.emp_no)
+        INNER JOIN departments d
+        On (de.dept_no = d.dept_no)
+        WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
+        --AND (de.to_date = '9999-01-01')
+        order by e.emp_no, s.to_date DESC
+        ;
+
