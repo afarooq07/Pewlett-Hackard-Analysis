@@ -21,7 +21,7 @@ The scope of this week's challenge is use employee database to determine:
     -  Data\mentorship_eligibilty.csv
 </br>
  
-- SQL file: Employee_Database_challenge.sql
+- SQL file: Queries\Employee_Database_challenge.sql
 </br>
 
 ## Results:
