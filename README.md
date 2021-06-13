@@ -67,4 +67,20 @@ The following roles will need to be filled:
 - Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
   - not enough - number of employees identified for memtorship program (1549) are 1.71% of the number of employee retiring (90398)
 
-</br>
+- Additional queries for more insight:
+    - The following query shows retirements of current employees by departments. Development and Production departments will face the the highest retirements. Memtorship programs will be required to fill the positions.
+
+        </br>
+        select count(*), d.dept_name
+        FROM employees as e
+        INNER JOIN dept_employee as de
+        ON (e.emp_no = de.emp_no)
+        INNER JOIN departments d
+        ON (de.dept_no = d.dept_no)
+        WHERE de.to_date = '9999-01-01'
+        AND (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
+        group by d.dept_name
+        ORDER BY count(*) DESC
+        </br>
+
+    - 
