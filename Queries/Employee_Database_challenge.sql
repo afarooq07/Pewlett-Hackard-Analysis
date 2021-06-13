@@ -68,7 +68,7 @@ AND (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
 ORDER BY e.emp_no, t.to_date desc
 ;
 
-select count(*), title
+select count(*)
 from mentorship_eligibilty;
 
 
@@ -77,3 +77,35 @@ from mentorship_eligibilty
 group by title
 order by count(*) desc;
 
+-------------------- DELIVERABLE 3 --------------------
+-- retirement of current employees by department
+select count(*), d.dept_name
+FROM employees as e
+INNER JOIN dept_employee as de
+ON (e.emp_no = de.emp_no)
+INNER JOIN departments d
+ON (de.dept_no = d.dept_no)
+WHERE de.to_date = '9999-01-01'
+AND (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
+group by d.dept_name
+ORDER BY count(*) DESC
+
+SELECT DISTINCT ON (e.emp_no) e.emp_no,
+    e.first_name,
+	e.last_name,
+    e.gender,
+	s.from_date,
+	s.to_date,
+    s.salary,
+	d.dept_name
+FROM employees as e
+INNER JOIN salaries as s
+ON (e.emp_no = s.emp_no)
+INNER JOIN dept_employee de
+ON (de.emp_no = e.emp_no)
+INNER JOIN departments d
+On (de.dept_no = d.dept_no)
+WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
+--AND (de.to_date = '9999-01-01')
+order by e.emp_no, s.to_date DESC
+;
